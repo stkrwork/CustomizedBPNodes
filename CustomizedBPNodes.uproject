@@ -7,7 +7,15 @@
 		{
 			"Name": "CustomizedBPNodes",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		},
+		{
+			"Name": "CustomizedBPNodesEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreLoadingScreen"
 		}
 	]
 }
