@@ -23,7 +23,7 @@ public:
 	virtual void AllocateDefaultPins() override;
 	virtual FText GetNodeTitle(ENodeTitleType::Type TitleType) const override;
 	virtual FText GetTooltipText() const override;
-	///virtual FLinearColor GetNodeTitleColor() const override;
+	//virtual FLinearColor GetNodeTitleColor() const override;
 	//virtual FSlateIcon GetIconAndTint(FLinearColor& OutColor) const override;
 	//UEdGraphNode implementation
 

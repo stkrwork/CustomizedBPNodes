@@ -21,6 +21,15 @@ namespace ExampleEnumUtils
 		if (!EnumPtr)
 			return TEXT("INVALID_ENUM");
 
+		return EnumPtr->GetNameByIndex(EnumValue).ToString();
+
+	}
+	inline FString EnumToDisplayString(const TCHAR* Enum, int32 EnumValue)
+	{
+		const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, Enum, true);
+		if (!EnumPtr)
+			return TEXT("INVALID_ENUM");
+
 		return EnumPtr->GetDisplayNameTextByIndex(EnumValue).ToString();
 
 	}

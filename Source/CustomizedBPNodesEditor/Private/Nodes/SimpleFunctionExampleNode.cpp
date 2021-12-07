@@ -43,13 +43,11 @@ void USimpleFunctionExampleNode::AllocateDefaultPins()
 FText USimpleFunctionExampleNode::GetNodeTitle(ENodeTitleType::Type Title) const
 {
     return NSLOCTEXT("CustomizedBPNodes", "Nodes.SimpleFunctionExampleNode.Title", "Simple Function Example Node");
-
 }
 
 FText USimpleFunctionExampleNode::GetTooltipText() const
 {
     return NSLOCTEXT("CustomizedBPNodes", "Nodes.SimpleFunctionExampleNode.Tooltip", "Simple Function Example Node to show the example");
-
 }
 
 bool USimpleFunctionExampleNode::ShouldShowNodeProperties() const
@@ -62,9 +60,10 @@ void USimpleFunctionExampleNode::ExpandNode(FKismetCompilerContext& CompilerCont
 {
 	Super::ExpandNode(CompilerContext, SourceGraph);
 	
-	UFunction* SimpleFunctionForNodeFunction = UExampleFunctionsLibrary::StaticClass()->FindFunctionByName(FName(TEXT("SimpleFunctionForNode")));
+	const FName FunctionName = GET_FUNCTION_NAME_CHECKED(UExampleFunctionsLibrary, SimpleFunctionForNode);
+	UFunction* SimpleFunctionForNodeFunction = UExampleFunctionsLibrary::StaticClass()->FindFunctionByName(FunctionName);
 
-	if (SimpleFunctionForNodeFunction == NULL) {
+	if (!SimpleFunctionForNodeFunction) {
 		CompilerContext.MessageLog.Error(*NSLOCTEXT("CustomizedBPNodes", "InvalidFunctionName", "The function has not been found.").ToString(), this);
 		return;
 	}
