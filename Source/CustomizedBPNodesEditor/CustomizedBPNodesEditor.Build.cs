@@ -18,6 +18,10 @@ public class CustomizedBPNodesEditor : ModuleRules
 			"UnrealEd",
 			"BlueprintGraph",
 			"KismetCompiler",
+			"Slate",
+			"SlateCore",
+			"EditorStyle",
+			"GraphEditor",
 			"CustomizedBPNodes"
 		});
 

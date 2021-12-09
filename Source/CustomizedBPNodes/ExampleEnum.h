@@ -10,7 +10,11 @@ enum class EExampleEnum : uint8
 {
 	INVALID,
 	OPTION_ONE,
-	OPTION_TWO
+	OPTION_TWO,
+
+
+	// DONT ADD A NEW VALUE BELOW THIS
+	MAX
 };
 
 namespace ExampleEnumUtils
@@ -22,8 +26,18 @@ namespace ExampleEnumUtils
 			return TEXT("INVALID_ENUM");
 
 		return EnumPtr->GetNameByIndex(EnumValue).ToString();
-
 	}
+
+	template<typename T>
+	T StringToEnumValue(const TCHAR* Enum, FString EnumValue)
+	{
+		const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, Enum, true);
+		if (!EnumPtr)
+			return static_cast<T>(0);
+
+		return static_cast<T>(EnumPtr->GetIndexByNameString(EnumValue));
+	}
+	
 	inline FString EnumToDisplayString(const TCHAR* Enum, int32 EnumValue)
 	{
 		const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, Enum, true);

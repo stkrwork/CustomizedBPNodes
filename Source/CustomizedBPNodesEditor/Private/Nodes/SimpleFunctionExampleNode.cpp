@@ -37,7 +37,6 @@ void USimpleFunctionExampleNode::AllocateDefaultPins()
 	}
     
 	CreatePin(EGPD_Output, UEdGraphSchema_K2::PC_Exec, {}, nullptr, UEdGraphSchema_K2::PN_Then);
-
 }
 
 FText USimpleFunctionExampleNode::GetNodeTitle(ENodeTitleType::Type Title) const
