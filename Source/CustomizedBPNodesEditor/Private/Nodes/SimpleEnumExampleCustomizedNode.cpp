@@ -60,12 +60,12 @@ void USimpleEnumExampleCustomizedNode::ExpandNode(FKismetCompilerContext& Compil
 	//Exec pins
 	UEdGraphPin* NodeExec = GetExecPin();
 	UEdGraphPin* NodeThen = FindPin(UEdGraphSchema_K2::PN_Then);
-	UEdGraphPin* DisplayDialogTextFunctionNodeExecPin = SimpleEnumFunctionForNodeCustomized->GetExecPin();
-	UEdGraphPin* DisplayDialogTextFunctionNodePin = SimpleEnumFunctionForNodeCustomized->GetThenPin();
+	UEdGraphPin* SimpleEnumFunctionForNodeCustomizedExecPin = SimpleEnumFunctionForNodeCustomized->GetExecPin();
+	UEdGraphPin* SimpleEnumFunctionForNodeCustomizedNodePin = SimpleEnumFunctionForNodeCustomized->GetThenPin();
 
 	// Move Exec and Then links to internal node
-	CompilerContext.MovePinLinksToIntermediate(*NodeExec, *DisplayDialogTextFunctionNodeExecPin);
-	CompilerContext.MovePinLinksToIntermediate(*NodeThen, *DisplayDialogTextFunctionNodePin);
+	CompilerContext.MovePinLinksToIntermediate(*NodeExec, *SimpleEnumFunctionForNodeCustomizedExecPin);
+	CompilerContext.MovePinLinksToIntermediate(*NodeThen, *SimpleEnumFunctionForNodeCustomizedNodePin);
 	
 	//After we are done we break all links to this node (not the internally created one)
 	BreakAllNodeLinks();

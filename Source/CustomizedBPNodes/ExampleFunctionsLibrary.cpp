@@ -32,3 +32,8 @@ void UExampleFunctionsLibrary::SimpleEnumFunctionForNodeCustomized(EExampleEnum 
 {
 	UE_LOG(LogTemp, Display, TEXT("UExampleFunctionsLibrary::SimpleEnumFunctionForNodeCustomized: Example Enum passed: %s"), *ExampleEnumUtils::EnumToString(TEXT("EExampleEnum"), static_cast<int32>(ExampleEnum)));
 }
+
+EExampleEnum UExampleFunctionsLibrary::ComplexEnumFunctionForNode()
+{
+	return static_cast<EExampleEnum>(FMath::RandRange(0, static_cast<int32>(EExampleEnum::MAX)-1));
+}

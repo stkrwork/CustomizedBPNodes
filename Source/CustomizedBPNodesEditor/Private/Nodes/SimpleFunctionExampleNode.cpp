@@ -84,12 +84,12 @@ void USimpleFunctionExampleNode::ExpandNode(FKismetCompilerContext& CompilerCont
 	//Exec pins
     UEdGraphPin* NodeExec = GetExecPin();
 	UEdGraphPin* NodeThen = FindPin(UEdGraphSchema_K2::PN_Then);
-	UEdGraphPin* DisplayDialogTextFunctionNodeExecPin = SimpleFunctionForNode->GetExecPin();
-    UEdGraphPin* DisplayDialogTextFunctionNodePin = SimpleFunctionForNode->GetThenPin();
+	UEdGraphPin* SimpleFunctionForNodeExecPin = SimpleFunctionForNode->GetExecPin();
+    UEdGraphPin* SimpleFunctionForNodePin = SimpleFunctionForNode->GetThenPin();
 
 	// Move Exec and Then links to internal node
-    CompilerContext.MovePinLinksToIntermediate(*NodeExec, *DisplayDialogTextFunctionNodeExecPin);
-	CompilerContext.MovePinLinksToIntermediate(*NodeThen, *DisplayDialogTextFunctionNodePin);
+    CompilerContext.MovePinLinksToIntermediate(*NodeExec, *SimpleFunctionForNodeExecPin);
+	CompilerContext.MovePinLinksToIntermediate(*NodeThen, *SimpleFunctionForNodePin);
 	
 	//After we are done we break all links to this node (not the internally created one)
 	BreakAllNodeLinks();

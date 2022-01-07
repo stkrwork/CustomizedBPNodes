@@ -34,4 +34,7 @@ public:
 	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly="true"), Category="Customized BP Nodes Example")
 	static void SimpleEnumFunctionForNodeCustomized(EExampleEnum ExampleEnum);
 	
+	UFUNCTION(BlueprintCallable, meta=(BlueprintInternalUseOnly="true"), Category="Customized BP Nodes Example")
+	static EExampleEnum ComplexEnumFunctionForNode();
+	
 };
